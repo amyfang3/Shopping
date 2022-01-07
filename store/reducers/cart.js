@@ -1,5 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cart';
 import { ADD_ORDER } from '../actions/orders';
+import { DELETE_PRODUCT } from '../actions/products';
 import CartItem from '../../models/cart-item';
 
 const initialState = {
@@ -62,6 +63,18 @@ export default (state = initialState, action) => {
       };
     case ADD_ORDER: // actions are available to ALL reducers, so the cart reducer can still reference an "Orders" action
       return initialState; // clears cart
+    case DELETE_PRODUCT:
+      if (!state.items[action.pid]) {
+        return state;
+      }
+      const updatedItems = { ...state.items };
+      const deletedItemTotal = state.items[action.pid].sum;
+      delete updatedItems[action.pid];
+      return {
+        ...state,
+        items: updatedItems,
+        totalAmount: state.totalAmount - deletedItemTotal,
+      };
   }
   return state;
 };
