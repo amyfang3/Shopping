@@ -3,5 +3,6 @@
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
   "javascript.preferences.quoteStyle": "single",
-  "html.completion.attributeDefaultValue": "singlequotes"
+  "html.completion.attributeDefaultValue": "singlequotes",
+  "editor.bracketPairColorization.enabled": true
 }
