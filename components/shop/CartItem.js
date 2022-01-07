@@ -23,8 +23,6 @@ const CartItem = (props) => {
   );
 };
 
-export default CartItem;
-
 const styles = StyleSheet.create({
   cartItem: {
     padding: 10,
@@ -50,3 +48,5 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 });
+
+export default CartItem;
