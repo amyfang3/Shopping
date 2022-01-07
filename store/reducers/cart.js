@@ -1,4 +1,5 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/cart';
+import { ADD_ORDER } from '../actions/orders';
 import CartItem from '../../models/cart-item';
 
 const initialState = {
@@ -59,6 +60,8 @@ export default (state = initialState, action) => {
           state.totalAmount - selectedCartItem.productPrice
         ),
       };
+    case ADD_ORDER: // actions are available to ALL reducers, so the cart reducer can still reference an "Orders" action
+      return initialState; // clears cart
   }
   return state;
 };
